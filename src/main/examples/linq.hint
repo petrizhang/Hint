@@ -1,0 +1,29 @@
+package com.pc;
+
+object App {
+    public def main(args:Array<String>) {
+        System.out.println("helloworld");
+
+        var numbers: Array<int> = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        // The query variable can also be implicitly typed by using var
+        var filteringQuery =
+                from num in numbers
+        where num <3 || num > 7
+        select num;
+
+        // Query #2.
+        var orderingQuery =
+                from num in numbers
+        where num <3 || num > 7
+        orderby num ascending
+        select num;
+
+        // Query #3.
+        var groupingQuery: Array<String> = {"carrots", "cabbage", "broccoli", "beans", "barley"};
+        var queryFoodGroups =
+                from item in groupingQuery
+        group item by item[0];
+    }
+}
+
